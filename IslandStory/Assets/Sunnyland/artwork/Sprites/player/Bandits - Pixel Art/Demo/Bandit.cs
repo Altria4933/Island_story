@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Bandit : MonoBehaviour {
 
@@ -17,6 +18,8 @@ public class Bandit : MonoBehaviour {
     public int currentHealth;
     public HealthBar healthBar;
 
+    public int Cherry = 0;
+    public Text CherryNum;
 
 
     // Use this for initialization
@@ -24,8 +27,8 @@ public class Bandit : MonoBehaviour {
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_Bandit>();
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        //currentHealth = maxHealth;
+        //healthBar.SetMaxHealth(maxHealth);
     }
 	
 	// Update is called once per frame
@@ -90,6 +93,20 @@ public class Bandit : MonoBehaviour {
             m_groundSensor.Disable(0.2f);
         }
 
+         else if (Input.GetKeyDown("space") && m_grounded) {
+            m_animator.SetTrigger("Jump");
+            m_grounded = false;
+            m_animator.SetBool("Grounded", m_grounded);
+            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            m_groundSensor.Disable(0.2f);
+        }
+         
+
+        /* else if (Input.GetKeyDown("space") && coll.IsTouchingLayers(ground))
+         {
+            m_animator.SetBool("Jump", true);
+         }
+         */
         //Run
         else if (Mathf.Abs(inputX) > Mathf.Epsilon)
             m_animator.SetInteger("AnimState", 2);
@@ -113,5 +130,25 @@ public class Bandit : MonoBehaviour {
     {
         currentHealth -= damage;
         healthBar.SetMaxHealth(currentHealth);
+    }
+    //Collect Cherry
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Collection")
+        {
+         Destroy(collision.gameObject);
+         Cherry += 1;
+         CherryNum.text = Cherry.ToString();
+        }
+    }
+
+    //Eliminate Enemies
+    private void onCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemies")
+        {
+            Destroy(collision.gameObject);
+        }
+        
     }
 }
