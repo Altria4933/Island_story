@@ -82,5 +82,11 @@ public class Enemy_Frog : MonoBehaviour
         }
     }
 
+    void Death()
+    {
+        Anim.SetTrigger("death");
+
+    }
+
 
 }
