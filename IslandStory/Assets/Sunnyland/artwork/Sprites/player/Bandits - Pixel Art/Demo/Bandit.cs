@@ -21,6 +21,8 @@ public class Bandit : MonoBehaviour {
     public float attackRange = 0.4f;
     public LayerMask enemylayers;
     public int atkdmg = 20;
+    float atkRate = 2f;
+    float nextAttackTime = 0f;
     //public attack m_attack;
     
 
@@ -94,16 +96,15 @@ public class Bandit : MonoBehaviour {
 
         //Attack
         else if(Input.GetKeyDown("z")) {
-            //m_attack.Update();
-            m_animator.SetTrigger("Attack");
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylayers);
-
-            //damage
-            foreach(Collider2D enemy in hitEnemies)
+            //Attack timer so the player wont go crazy
+            if(Time.time >= nextAttackTime)
             {
-                enemy.GetComponent<Enemy_Frog>().takeDmg(atkdmg);
-                Debug.Log("you hit " + enemy.name);
+                attack();
+                nextAttackTime = Time.time + 1f / atkRate;
+
             }
+            //m_attack.Update();
+            
         }
         /*
         else if(Input.GetMouseButtonDown(0)) {
@@ -155,6 +156,20 @@ public class Bandit : MonoBehaviour {
         //Idle
         else
             m_animator.SetInteger("AnimState", 0);
+    }
+
+    void attack()
+    {
+        m_animator.SetTrigger("Attack");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylayers);
+
+        //damage
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Enemy_Frog>().takeDmg(atkdmg);
+            Debug.Log("you hit " + enemy.name);
+        }
+
     }
 
     private void OnDrawGizmosSelected()
