@@ -5,41 +5,61 @@ using UnityEngine.SceneManagement;
 
 public class MenuBehaviour : MonoBehaviour
 {
-  
-        public void PlayGame()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
 
-        public void QuitGame()
-        {
-            Application.Quit();
-        }
+    public GameObject pauseMenu;
 
-        public void UIEnable()
-        {
-            GameObject.Find("Canvas/Menu/UI").SetActive(true);
-        }
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
-        public void PanelEnable()
-        {
-            GameObject.Find("Canvas/Menu/Option panel").SetActive(true);
-        }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
-        public void UIDisable()
-        {
-            GameObject.Find("Canvas/Menu/UI").SetActive(false);
-        }
+    public void UIEnable()
+    {
+        GameObject.Find("Canvas/Menu/UI").SetActive(true);
+    }
 
-        public void PanelDisable()
-        {
-            GameObject.Find("Canvas/Menu/Option panel").SetActive(false);
-        }
+    public void PanelEnable()
+    {
+        GameObject.Find("Canvas/Menu/Option panel").SetActive(true);
+    }
 
-        public void LeverSelect(int lv)
-        {
-            SceneManager.LoadScene(lv);
-        }
+    public void UIDisable()
+    {
+        GameObject.Find("Canvas/Menu/UI").SetActive(false);
+    }
+
+
+
+    public void PanelDisable()
+    {
+        GameObject.Find("Canvas/Menu/Option panel").SetActive(false);
+    }
+
+    public void LeverSelect(int lv)
+    {
+        SceneManager.LoadScene(lv);
+        Time.timeScale = 1f;
+    }
+
+    public void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+
+
 
 
 
