@@ -11,6 +11,8 @@ public class Enemy_Frog : MonoBehaviour
     public Transform leftpoint, rightpoint;
     public float Speed,JumpForce;
     private float leftx, rightx;
+    public int maxHealth = 100;
+    int currentHealth;
 
     private bool Faceleft = true;
 
@@ -25,6 +27,7 @@ public class Enemy_Frog : MonoBehaviour
         rightx = rightpoint.position.x;
         Destroy(leftpoint.gameObject);
         Destroy(rightpoint.gameObject);
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -66,6 +69,18 @@ public class Enemy_Frog : MonoBehaviour
 
     }
 
+    public void takeDmg(int dmg)
+    {
+        currentHealth -= dmg;
+        Debug.Log("Frog took" + dmg + "dmg, " + currentHealth + "HP left.");
+        //play hurt anim
+
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
+    }
+
     void SwitchAnim()
     {
         if (Anim.GetBool("jumping"))
@@ -85,6 +100,8 @@ public class Enemy_Frog : MonoBehaviour
     void Death()
     {
         Anim.SetTrigger("death");
+        Debug.Log("frog dead");
+        //disable frog
 
     }
 

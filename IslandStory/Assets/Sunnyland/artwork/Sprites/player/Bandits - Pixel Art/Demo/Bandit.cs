@@ -20,6 +20,7 @@ public class Bandit : MonoBehaviour {
     public Transform attackPoint;
     public float attackRange = 0.4f;
     public LayerMask enemylayers;
+    public int atkdmg = 20;
     //public attack m_attack;
     
 
@@ -100,6 +101,7 @@ public class Bandit : MonoBehaviour {
             //damage
             foreach(Collider2D enemy in hitEnemies)
             {
+                enemy.GetComponent<Enemy_Frog>().takeDmg(atkdmg);
                 Debug.Log("you hit " + enemy.name);
             }
         }

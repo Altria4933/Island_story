@@ -6183,7 +6183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 220571647}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -6750,7 +6750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 445234593}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8121,7 +8121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159456410}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -8218,6 +8218,11 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 9688b416ea161487fb8509da6c495559, type: 2}
+    - target: {fileID: 61252362154681264, guid: 2e2183501755a214591e802f3aff33d2,
+        type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114850797635947820, guid: 2e2183501755a214591e802f3aff33d2,
         type: 3}
       propertyPath: m_speed
@@ -8238,6 +8243,16 @@ PrefabInstance:
       propertyPath: CherryNum
       value: 
       objectReference: {fileID: 1267444097}
+    - target: {fileID: 114850797635947820, guid: 2e2183501755a214591e802f3aff33d2,
+        type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1705408161}
+    - target: {fileID: 114850797635947820, guid: 2e2183501755a214591e802f3aff33d2,
+        type: 3}
+      propertyPath: enemylayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 212259381048184306, guid: 2e2183501755a214591e802f3aff33d2,
         type: 3}
       propertyPath: m_SortingOrder
@@ -8269,7 +8284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1178940440}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -8761,7 +8776,7 @@ GameObject:
   - component: {fileID: 1479261980}
   - component: {fileID: 1479261979}
   - component: {fileID: 1479261983}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8905,6 +8920,7 @@ MonoBehaviour:
   top: {fileID: 220571647}
   bottom: {fileID: 1178940440}
   Speed: 1
+  maxHealth: 100
 --- !u!1 &1578678265
 GameObject:
   m_ObjectHideFlags: 0
@@ -9014,6 +9030,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1170668769}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1705408160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705408161}
+  m_Layer: 0
+  m_Name: attack point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1705408161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705408160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.145, y: 0.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1607100917}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782219678
 GameObject:
   m_ObjectHideFlags: 0
@@ -9475,7 +9521,7 @@ GameObject:
   - component: {fileID: 1939338966}
   - component: {fileID: 1939338968}
   - component: {fileID: 1939338969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frog
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -9604,6 +9650,7 @@ MonoBehaviour:
   rightpoint: {fileID: 2005657245}
   Speed: 1.5
   JumpForce: 5
+  maxHealth: 20
 --- !u!95 &1939338969
 Animator:
   serializedVersion: 3
@@ -10010,7 +10057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005657245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

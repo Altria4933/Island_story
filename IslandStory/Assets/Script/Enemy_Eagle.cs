@@ -9,6 +9,8 @@ public class Enemy_Eagle : MonoBehaviour
     public Transform top, bottom;
     public float Speed;
     private float TopY, BottomY;
+    public int maxHealth = 100;
+    int currentHealth;
 
     private bool isUp;
 
@@ -21,6 +23,7 @@ public class Enemy_Eagle : MonoBehaviour
         BottomY = bottom.position.y;
         Destroy(top.gameObject);
         Destroy(bottom.gameObject);
+        currentHealth = maxHealth;
         
     }
 
@@ -47,5 +50,11 @@ public class Enemy_Eagle : MonoBehaviour
                 isUp = true;
             }
         }
+    }
+
+
+    public void takeDmg (int dmg)
+    {
+
     }
 }
