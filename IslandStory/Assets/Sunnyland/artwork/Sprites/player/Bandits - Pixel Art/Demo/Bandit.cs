@@ -76,9 +76,14 @@ public class Bandit : MonoBehaviour {
             m_animator.SetTrigger("Hurt");
 
         //Attack
+        else if(Input.GetKeyDown("z")) {
+            m_animator.SetTrigger("Attack");
+        }
+        /*
         else if(Input.GetMouseButtonDown(0)) {
             m_animator.SetTrigger("Attack");
         }
+        */
 
         //Change between idle and combat idle
         else if (Input.GetKeyDown("f"))
