@@ -134,7 +134,7 @@ public class Bandit : MonoBehaviour {
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthBar.SetMaxHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
     }
     //Collect Cherry
     private void OnTriggerEnter2D(Collider2D collision)
