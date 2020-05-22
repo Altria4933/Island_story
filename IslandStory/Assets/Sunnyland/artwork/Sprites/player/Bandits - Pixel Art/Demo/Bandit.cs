@@ -62,15 +62,26 @@ public class Bandit : MonoBehaviour {
 
         // -- Handle Animations --
         //Death
-        if (Input.GetKeyDown("e")) {
+        if (currentHealth <=0)
+        {
+            
+                m_animator.SetTrigger("Death");
+                Debug.Log("You dead");
+
+                Time.timeScale = 0f;
+            currentHealth = 1;//for debug only
+    
+        }
+        //keep the souce code for debug 
+        /*if (Input.GetKeyDown("e")) {
             if(!m_isDead)
                 m_animator.SetTrigger("Death");
             else
                 m_animator.SetTrigger("Recover");
 
             m_isDead = !m_isDead;
-        }
-            
+        }  */
+
         //Hurt
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
