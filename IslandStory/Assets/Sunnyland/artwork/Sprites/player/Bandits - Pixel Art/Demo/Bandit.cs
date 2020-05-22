@@ -17,6 +17,11 @@ public class Bandit : MonoBehaviour {
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public Transform attackPoint;
+    public float attackRange = 0.4f;
+    public LayerMask enemylayers;
+    //public attack m_attack;
+    
 
     public int Cherry = 0;
     public Text CherryNum;
@@ -88,7 +93,15 @@ public class Bandit : MonoBehaviour {
 
         //Attack
         else if(Input.GetKeyDown("z")) {
+            //m_attack.Update();
             m_animator.SetTrigger("Attack");
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemylayers);
+
+            //damage
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                Debug.Log("you hit " + enemy.name);
+            }
         }
         /*
         else if(Input.GetMouseButtonDown(0)) {
@@ -140,6 +153,15 @@ public class Bandit : MonoBehaviour {
         //Idle
         else
             m_animator.SetInteger("AnimState", 0);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     void TakeDamage(int damage)
