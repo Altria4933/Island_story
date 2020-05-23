@@ -13,6 +13,7 @@ public class Enemy_Frog : MonoBehaviour
     private float leftx, rightx;
     public int maxHealth = 100;
     int currentHealth;
+    private Bandit bandit;
 
     private bool Faceleft = true;
 
@@ -22,6 +23,7 @@ public class Enemy_Frog : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         Coll = GetComponent<Collider2D>();
+        bandit = GameObject.FindGameObjectWithTag("Player").GetComponent<Bandit>();
         transform.DetachChildren();
         leftx = leftpoint.position.x;
         rightx = rightpoint.position.x;
@@ -104,6 +106,17 @@ public class Enemy_Frog : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            bandit.TakeDamage(20);
+            
+            Debug.Log("you hut 20");
+
+        }
     }
 
 

@@ -181,10 +181,11 @@ public class Bandit : MonoBehaviour {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        m_animator.SetTrigger("Hurt");
     }
     //Collect Cherry
     private void OnTriggerEnter2D(Collider2D collision)
@@ -206,4 +207,6 @@ public class Bandit : MonoBehaviour {
         }
         
     }
+
+    
 }
