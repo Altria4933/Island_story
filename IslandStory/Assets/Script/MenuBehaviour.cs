@@ -7,6 +7,7 @@ public class MenuBehaviour : MonoBehaviour
 {
 
     public GameObject pauseMenu;
+    public GameObject deathMenu;
 
     public void PlayGame()
     {
@@ -56,6 +57,19 @@ public class MenuBehaviour : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void endGame()
+    {  
+        deathMenu.SetActive(true);
+    }
+
+    public void restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        deathMenu.SetActive(false);
+
     }
 
 
