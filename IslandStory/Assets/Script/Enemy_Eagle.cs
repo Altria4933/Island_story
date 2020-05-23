@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy_Eagle : MonoBehaviour
 {
     private Rigidbody2D rb;
+     private Animator Anim;
     private Collider2D coll;
     public Transform top, bottom;
     public float Speed;
@@ -18,6 +19,7 @@ public class Enemy_Eagle : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
         TopY = top.position.y;
         BottomY = bottom.position.y;
@@ -55,6 +57,22 @@ public class Enemy_Eagle : MonoBehaviour
 
     public void takeDmg (int dmg)
     {
+          currentHealth -= dmg;
+        Debug.Log("Eagle took" + dmg + "dmg, " + currentHealth + "HP left.");
+        //play hurt anim
+
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
+    }
+
+   void Death()
+    {
+        Debug.Log("frog dead");
+        Anim.SetTrigger("death");
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
 
     }
 }
