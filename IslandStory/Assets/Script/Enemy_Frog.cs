@@ -102,8 +102,8 @@ public class Enemy_Frog : MonoBehaviour
     void Death()
     {
         Debug.Log("frog dead");
-        Anim.SetTrigger("death");
         GetComponent<Collider2D>().enabled = false;
+        Anim.SetTrigger("death");
         this.enabled = false;
 
     }
