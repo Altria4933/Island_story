@@ -13,8 +13,8 @@ public class Bandit : MonoBehaviour
     private Sensor_Bandit m_groundSensor;
     private bool m_grounded = false;
     private bool m_combatIdle = false;
-    private bool                m_isDead = false;
-    
+    private bool m_isDead = false;
+
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -219,7 +219,7 @@ public class Bandit : MonoBehaviour
 
     }
 
-    
+
 
 
 
