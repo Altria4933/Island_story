@@ -29,6 +29,9 @@ public class Bandit : MonoBehaviour {
     public int Cherry = 0;
     public Text CherryNum;
 
+    public int Gem = 0;
+    public Text GemNum;
+
 
     // Use this for initialization
     void Start () {
@@ -196,7 +199,16 @@ public class Bandit : MonoBehaviour {
          Cherry += 1;
          CherryNum.text = Cherry.ToString();
         }
+        else if (collision.tag == "Gem")
+        {
+         Destroy(collision.gameObject);
+         Gem += 1;
+         GemNum.text = Gem.ToString();
+        }
     }
+    
+    
+
 
     //Eliminate Enemies
     private void onCollisionEnter2D(Collision2D collision)
