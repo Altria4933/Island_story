@@ -6,7 +6,7 @@ public class attack : MonoBehaviour
 {
 
     public Animator animator;
-    
+
     // Update is called once per frame
     public void Update()
     {
@@ -16,6 +16,6 @@ public class attack : MonoBehaviour
 
     public void Prefomattack()
     {
-       animator.SetTrigger("Attack");
+        animator.SetTrigger("Attack");
     }
 }
