@@ -9,7 +9,7 @@ public class Enemy_Frog : MonoBehaviour
     private Collider2D Coll;
     public LayerMask Ground;
     public Transform leftpoint, rightpoint;
-    public float Speed,JumpForce;
+    public float Speed, JumpForce;
     private float leftx, rightx;
     public int maxHealth = 100;
     int currentHealth;
@@ -37,35 +37,35 @@ public class Enemy_Frog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         SwitchAnim();
     }
 
     void Movement()
     {
-        if(Faceleft)
+        if (Faceleft)
         {
-            if(Coll.IsTouchingLayers(Ground))
+            if (Coll.IsTouchingLayers(Ground))
             {
                 Anim.SetBool("jumping", true);
                 rb.velocity = new Vector2(-Speed, JumpForce);
             }
             if (transform.position.x < leftx)
             {
-                transform.localScale = new Vector3(-1,1,1);
+                transform.localScale = new Vector3(-1, 1, 1);
                 Faceleft = false;
             }
         }
         else
         {
-            if(Coll.IsTouchingLayers(Ground))
+            if (Coll.IsTouchingLayers(Ground))
             {
                 Anim.SetBool("jumping", true);
                 rb.velocity = new Vector2(Speed, JumpForce);
             }
             if (transform.position.x > rightx)
             {
-                transform.localScale = new Vector3(1,1,1);
+                transform.localScale = new Vector3(1, 1, 1);
                 Faceleft = true;
             }
         }
@@ -79,7 +79,7 @@ public class Enemy_Frog : MonoBehaviour
         Debug.Log("Frog took" + dmg + "dmg, " + currentHealth + "HP left.");
         //play hurt anim
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Death();
         }
@@ -102,7 +102,7 @@ public class Enemy_Frog : MonoBehaviour
     }
 
     void Death()
-    {      
+    {
         this.enabled = false;
         GetComponent<Collider2D>().enabled = false;
         Anim.SetTrigger("death");
@@ -118,7 +118,7 @@ public class Enemy_Frog : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             bandit.TakeDamage(20);
-            
+
             Debug.Log("you hut 20");
 
         }

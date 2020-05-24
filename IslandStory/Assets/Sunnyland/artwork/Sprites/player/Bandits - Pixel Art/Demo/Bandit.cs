@@ -15,8 +15,6 @@ public class Bandit : MonoBehaviour
     private bool m_grounded = false;
     private bool m_combatIdle = false;
     private bool m_isDead = false;
-
-
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
@@ -26,11 +24,6 @@ public class Bandit : MonoBehaviour
     public int atkdmg = 20;
     float atkRate = 2f;
     float nextAttackTime = 0f;
-    //public attack m_attack;
-
-
-    //public int Cherry = 0;
-    //public Text CherryNum;
     public int Gem = 0;
     public Text GemNum;
 
@@ -104,7 +97,7 @@ public class Bandit : MonoBehaviour
         //Hurt
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
-        
+
         //Hurt
         else if (Input.GetKeyDown("s"))
             m_animator.SetTrigger("Hurt");
@@ -142,7 +135,7 @@ public class Bandit : MonoBehaviour
             m_groundSensor.Disable(1.3f);
         }
 
-       
+
 
 
         /* else if (Input.GetKeyDown("space") && coll.IsTouchingLayers(ground))
@@ -161,7 +154,7 @@ public class Bandit : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            //TakeDamage(20);
+            //TakeDamage(20);  debug only
         }
 
         //Idle
@@ -198,7 +191,7 @@ public class Bandit : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         m_animator.SetTrigger("Hurt");
     }
-    
+
     //collider
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -206,15 +199,15 @@ public class Bandit : MonoBehaviour
         if (collision.tag == "Collection")
         {
             Destroy(collision.gameObject);
-            if(currentHealth <=100)
+            if (currentHealth <= 100)
             {
-                //currentHealth +10;
+
                 currentHealth += 10;
                 //collecting cherry to gain hp
+                healthBar.SetHealth(currentHealth);
                 //Debug.Log("+1");
             }
-            //Cherry += 1;
-            //CherryNum.text = Cherry.ToString();
+
         }
         //Collect Cherry Gem
         else if (collision.tag == "Gem")
@@ -226,7 +219,7 @@ public class Bandit : MonoBehaviour
 
         else if (collision.tag == "DeadLine")
         {
-            currentHealth =0;
+            currentHealth = 0;
         }
     }
 
@@ -240,21 +233,16 @@ public class Bandit : MonoBehaviour
 
     }
 
-    public void addGem ()
+    public void addGem()
     {
-        if (FindObjectOfType<Enemy_Frog>().is_dead == true){
-        Gem += 1;
-        GemNum.text = Gem.ToString();
+        if (FindObjectOfType<Enemy_Frog>().is_dead == true)
+        {
+            Gem += 1;
+            GemNum.text = Gem.ToString();
 
         }
-          
-        
-        
+
     }
-
-
-
-
 
 }
 

@@ -60,7 +60,7 @@ public class MenuBehaviour : MonoBehaviour
     }
 
     public void endGame()
-    {  
+    {
         deathMenu.SetActive(true);
     }
 
@@ -76,12 +76,6 @@ public class MenuBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-
-
-
-
-
 }
 
 
