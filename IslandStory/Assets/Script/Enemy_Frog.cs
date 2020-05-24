@@ -14,6 +14,7 @@ public class Enemy_Frog : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     private Bandit bandit;
+    public bool is_dead = false;
 
     private bool Faceleft = true;
 
@@ -30,6 +31,7 @@ public class Enemy_Frog : MonoBehaviour
         Destroy(leftpoint.gameObject);
         Destroy(rightpoint.gameObject);
         currentHealth = maxHealth;
+        is_dead = false;
     }
 
     // Update is called once per frame
@@ -105,6 +107,10 @@ public class Enemy_Frog : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         Anim.SetTrigger("death");
         Debug.Log("frog dead");
+        bandit.addGem();
+        is_dead = true;
+
+
     }
 
     void OnTriggerEnter2D(Collider2D col)

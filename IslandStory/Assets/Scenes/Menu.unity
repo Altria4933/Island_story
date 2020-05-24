@@ -1055,6 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!224 &878965753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1472,8 +1473,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -300.01}
-  m_SizeDelta: {x: 799.9995, y: 599.9769}
+  m_AnchoredPosition: {x: 533.22, y: -300.01}
+  m_SizeDelta: {x: 1066.4381, y: 599.9785}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008364035
 MonoBehaviour:
@@ -1525,6 +1526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!95 &1008364038
 Animator:
   serializedVersion: 3
@@ -1864,8 +1866,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 389.7, y: -347.6}
-  m_SizeDelta: {x: 846.30896, y: 695.23}
+  m_AnchoredPosition: {x: 523.4, y: -347.62}
+  m_SizeDelta: {x: 1113.6779, y: 695.1935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112216568
 MonoBehaviour:
@@ -2942,6 +2944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!1 &1797612432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,6 +3647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!1 &2036069780
 GameObject:
   m_ObjectHideFlags: 0
