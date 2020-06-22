@@ -3,20 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Enemy_Frog : MonoBehaviour
+public class Enemy_Frog : Monster
 {
-    private Rigidbody2D rb;
-    private Animator Anim;
-    private Collider2D Coll;
-    public LayerMask Ground;
+    
     public Transform leftpoint, rightpoint;
     public float Speed, JumpForce;
     private float leftx, rightx;
-    public int maxHealth = 100;
-    int currentHealth;
-    private Bandit bandit;
-    public bool is_dead = false;
-
     private bool Faceleft = true;
 
     // Start is called before the first frame update
@@ -33,9 +25,9 @@ public class Enemy_Frog : MonoBehaviour
         Destroy(rightpoint.gameObject);
         currentHealth = maxHealth;
         is_dead = false;
+        this.Monster_name = "frog";
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -74,17 +66,7 @@ public class Enemy_Frog : MonoBehaviour
 
     }
 
-    public void takeDmg(int dmg)
-    {
-        currentHealth -= dmg;
-        Debug.Log("Frog took" + dmg + "dmg, " + currentHealth + "HP left.");
-        //play hurt anim
-
-        if (currentHealth <= 0)
-        {
-            Death();
-        }
-    }
+    
 
     void SwitchAnim()
     {
@@ -102,28 +84,7 @@ public class Enemy_Frog : MonoBehaviour
         }
     }
 
-    void Death()
-    {
-        this.enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        Anim.SetTrigger("death");
-        Debug.Log("frog dead");
-        bandit.addGem();
-        is_dead = true;
-
-
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            bandit.TakeDamage(20);
-
-            Debug.Log("you hut 20");
-
-        }
-    }
+    
 
 
 }
