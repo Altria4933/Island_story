@@ -15,23 +15,11 @@ public class Monster : MonoBehaviour
     public bool is_dead = false;
     public string Monster_name;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
+  
+   
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        SwitchAnim();
-    }
-
-    void Movement()
-    {
-       
-    }
+    
 
     public void takeDmg(int dmg)
     {
@@ -45,10 +33,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    void SwitchAnim()
-    {
-        
-    }
+    
 
     void Death()
     {
