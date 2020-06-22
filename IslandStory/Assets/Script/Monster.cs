@@ -15,12 +15,6 @@ public class Monster : MonoBehaviour
     public bool is_dead = false;
     public string Monster_name;
 
-  
-   
-    
-
-    
-
     public void takeDmg(int dmg)
     {
         currentHealth -= dmg;
@@ -31,6 +25,11 @@ public class Monster : MonoBehaviour
         {
             Death();
         }
+        if (currentHealth > 0)
+        {
+            Anim.SetTrigger("hurt");
+        }
+
     }
 
     
@@ -56,6 +55,8 @@ public class Monster : MonoBehaviour
             Debug.Log("you hut 20");
         }
     }
+
+    
 
 
 }

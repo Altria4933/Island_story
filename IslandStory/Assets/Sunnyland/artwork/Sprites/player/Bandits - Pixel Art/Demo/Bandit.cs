@@ -170,9 +170,10 @@ public class Bandit : MonoBehaviour
         //damage
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Enemy_Frog>().takeDmg(atkdmg);
+            enemy.GetComponent<Monster>().takeDmg(atkdmg);
             Debug.Log("you hit " + enemy.name);
         }
+       
 
     }
 

@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Enemy_Eagle : MonoBehaviour
+public class Enemy_Eagle : Monster
 {
-    private Rigidbody2D rb;
-     private Animator Anim;
-    private Collider2D coll;
+    
     public Transform top, bottom;
     public float Speed;
     private float TopY, BottomY;
-    public int maxHealth = 100;
-    int currentHealth;
-
     private bool isUp;
 
     // Start is called before the first frame update
@@ -20,12 +16,16 @@ public class Enemy_Eagle : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
-        coll = GetComponent<Collider2D>();
+        Coll = GetComponent<Collider2D>();
+        bandit = GameObject.FindGameObjectWithTag("Player").GetComponent<Bandit>();
+        transform.DetachChildren();
         TopY = top.position.y;
         BottomY = bottom.position.y;
         Destroy(top.gameObject);
         Destroy(bottom.gameObject);
         currentHealth = maxHealth;
+        is_dead = false;
+        this.Monster_name = "eagle";
         
     }
 
@@ -55,24 +55,6 @@ public class Enemy_Eagle : MonoBehaviour
     }
 
 
-    public void takeDmg (int dmg)
-    {
-          currentHealth -= dmg;
-        Debug.Log("Eagle took" + dmg + "dmg, " + currentHealth + "HP left.");
-        //play hurt anim
 
-        if(currentHealth <= 0)
-        {
-            Death();
-        }
-    }
-
-   void Death()
-    {
-        Debug.Log("frog dead");
-        Anim.SetTrigger("death");
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
-
-    }
+   
 }
