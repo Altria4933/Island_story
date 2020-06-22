@@ -10,6 +10,11 @@ public class Enemy_Goblin : Monster
     private float leftx, rightx;
     public float Speed;
     private bool Faceleft = true;
+    float timeLeft = 5.0f;
+
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,8 @@ public class Enemy_Goblin : Monster
         currentHealth = maxHealth;
         is_dead = false;
         this.Monster_name = "goblin";
+        
+
 
     }
 
@@ -33,6 +40,12 @@ public class Enemy_Goblin : Monster
     void Update()
     {
         Movement();
+        timeLeft -= Time.deltaTime;
+            if (timeLeft < 0)
+            {
+            attack();
+            timeLeft = 5.0f;
+            }
     }
     void Movement()
     {
@@ -57,6 +70,11 @@ public class Enemy_Goblin : Monster
     }
 
 
+    void attack()
+    {
+        Debug.Log(Monster_name + "Attacks. (testing)");
+      
+    }
     
 
 }
