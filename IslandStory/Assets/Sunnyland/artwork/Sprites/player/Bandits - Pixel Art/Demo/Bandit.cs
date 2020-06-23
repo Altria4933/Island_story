@@ -21,6 +21,7 @@ public class Bandit : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.4f;
     public LayerMask enemylayers;
+    public AudioSource jumpAudio, cherryAudio;
     public int atkdmg = 20;
     float atkRate = 2f;
     float nextAttackTime = 0f;
@@ -98,6 +99,7 @@ public class Bandit : MonoBehaviour
         else if (Input.GetKeyDown("q"))
             m_animator.SetTrigger("Hurt");
 
+
         //Hurt
         else if (Input.GetKeyDown("s"))
             m_animator.SetTrigger("Hurt");
@@ -132,6 +134,7 @@ public class Bandit : MonoBehaviour
             m_grounded = false;
             m_animator.SetBool("Grounded", m_grounded);
             m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            jumpAudio.Play();
             m_groundSensor.Disable(1.3f);
         }
 
@@ -199,6 +202,7 @@ public class Bandit : MonoBehaviour
         //Collect Cherry
         if (collision.tag == "Collection")
         {
+            cherryAudio.Play();
             Destroy(collision.gameObject);
             if (currentHealth <= 100)
             {
@@ -213,6 +217,7 @@ public class Bandit : MonoBehaviour
         //Collect Cherry Gem
         else if (collision.tag == "Gem")
         {
+            cherryAudio.Play();
             Destroy(collision.gameObject);
             Gem += 1;
             GemNum.text = Gem.ToString();
