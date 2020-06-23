@@ -73,6 +73,7 @@ public class Enemy_Goblin : Monster
     void attack()
     {
         Debug.Log(Monster_name + "Attacks. (testing)");
+        Anim.SetTrigger("hit");
       
     }
     
