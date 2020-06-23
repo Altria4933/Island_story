@@ -11,8 +11,7 @@ public class Enemy_Goblin : Monster
     public float Speed;
     private bool Faceleft = true;
     float timeLeft = 5.0f;
-    public GameObject airWall;
-    bool airwallactiv;
+    
 
 
 
@@ -42,7 +41,7 @@ public class Enemy_Goblin : Monster
     void Update()
     {
 
-        airwallactiv = airWall.activeSelf;
+        
         Movement();
         timeLeft -= Time.deltaTime;
             if (timeLeft < 0)
@@ -96,8 +95,7 @@ public class Enemy_Goblin : Monster
         Debug.Log(name + " dead");
         bandit.addGem();
         is_dead = true;
-        airWall.GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        
 
     }
 }

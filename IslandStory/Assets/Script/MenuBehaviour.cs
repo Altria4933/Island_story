@@ -29,6 +29,10 @@ public class MenuBehaviour : MonoBehaviour
         GameObject.Find("Canvas/Menu/Option panel").SetActive(true);
     }
 
+    public void SPanelEnable()
+    {
+        GameObject.Find("Canvas/Menu/Spanel").SetActive(true);
+    }
     public void UIDisable()
     {
         GameObject.Find("Canvas/Menu/UI").SetActive(false);
@@ -39,6 +43,11 @@ public class MenuBehaviour : MonoBehaviour
     public void PanelDisable()
     {
         GameObject.Find("Canvas/Menu/Option panel").SetActive(false);
+    }
+
+    public void SPanelDisable()
+    {
+        GameObject.Find("Canvas/Menu/Spanel").SetActive(false);
     }
 
     public void LeverSelect(int lv)
