@@ -11,6 +11,8 @@ public class Enemy_Goblin : Monster
     public float Speed;
     private bool Faceleft = true;
     float timeLeft = 5.0f;
+    public GameObject airWall;
+    bool airwallactiv;
 
 
 
@@ -39,6 +41,8 @@ public class Enemy_Goblin : Monster
     // Update is called once per frame
     void Update()
     {
+
+        airwallactiv = airWall.activeSelf;
         Movement();
         timeLeft -= Time.deltaTime;
             if (timeLeft < 0)
@@ -46,6 +50,7 @@ public class Enemy_Goblin : Monster
             attack();
             timeLeft = 5.0f;
             }
+
     }
     void Movement()
     {
@@ -77,5 +82,22 @@ public class Enemy_Goblin : Monster
       
     }
     
+    public bool getDeath ()
+    {
+        return is_dead;
+    }
 
+
+    void Death()
+    {
+       
+        GetComponent<Collider2D>().enabled = false;
+        Anim.SetTrigger("death");
+        Debug.Log(name + " dead");
+        bandit.addGem();
+        is_dead = true;
+        airWall.GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+
+    }
 }

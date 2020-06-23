@@ -33,14 +33,13 @@ public class Monster : MonoBehaviour
     }
     void Death()
     {
-        this.enabled = false;
+        
         GetComponent<Collider2D>().enabled = false;
         Anim.SetTrigger("death");
         Debug.Log(name +" dead");
         bandit.addGem();
         is_dead = true;
-
-
+        this.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)

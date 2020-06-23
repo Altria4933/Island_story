@@ -431,7 +431,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: nextLevel
         m_Mode: 1
         m_Arguments:
@@ -635,7 +636,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -1197,7 +1199,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
@@ -1625,7 +1628,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: LeverSelect
         m_Mode: 3
         m_Arguments:
@@ -2233,7 +2237,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: LeverSelect
         m_Mode: 3
         m_Arguments:
@@ -2675,7 +2680,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8495964420964058823, guid: 5ddd41af27bdb4c2ebdc425c888eda21,
+          type: 3}
         m_MethodName: restart
         m_Mode: 1
         m_Arguments:
@@ -2954,8 +2960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055ffe409316d4893ab440de6669a923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  deathMenu: {fileID: 0}
+  pauseMenu: {fileID: 1181048325296411508}
+  deathMenu: {fileID: 1181048325473999822}
 --- !u!1 &1181048326150280305
 GameObject:
   m_ObjectHideFlags: 0
