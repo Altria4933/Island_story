@@ -31,9 +31,6 @@ public class Monster : MonoBehaviour
         }
 
     }
-
-    
-
     void Death()
     {
         this.enabled = false;
@@ -55,8 +52,5 @@ public class Monster : MonoBehaviour
             Debug.Log("you hut 20");
         }
     }
-
-    
-
 
 }
